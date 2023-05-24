@@ -12,6 +12,8 @@ public class Stage1 extends Stage
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(); 
+        background = new GreenfootImage("images/characters/archer1.png");
+        scroller = new Scroller(this, background);
         prepare();
     }
     /**

@@ -1,20 +1,20 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Guide here.
+ * Write a description of class Menu here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Guide extends Button
+public class MenuButton extends Button
 {
-    public Guide(){
-        setImage("images/buttons/guide.png");
+    public MenuButton(){
+        setImage("images/buttons/menu.png");
     }
     public void act(){
         if(Greenfoot.mouseClicked(this))
         {
-            Greenfoot.setWorld(new GuidePage());
+            Greenfoot.setWorld(new MainPage());
         }
     }
 }

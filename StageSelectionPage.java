@@ -6,16 +6,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class StageSelectionPage extends World
+public class StageSelectionPage extends SelectionPage
 {
-
-    /**
-     * Constructor for objects of class StageSelectionPage.
-     * 
-     */
     public StageSelectionPage()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(); 
+        addObject(new MenuButton(), 100, getHeight()-50);
     }
 }

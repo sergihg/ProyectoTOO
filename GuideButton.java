@@ -1,20 +1,20 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Score here.
+ * Write a description of class Guide here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Score extends Button
+public class GuideButton extends Button
 {
-    public Score(){
-        setImage("images/buttons/record.png");
+    public GuideButton(){
+        setImage("images/buttons/guide.png");
     }
     public void act(){
         if(Greenfoot.mouseClicked(this))
         {
-            Greenfoot.setWorld(new RecordPage());
+            Greenfoot.setWorld(new GuidePage());
         }
     }
 }

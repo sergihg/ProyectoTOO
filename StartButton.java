@@ -6,16 +6,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Play extends Button
+public class StartButton extends Button
 {
-    public Play(){
+    private World world;
+    public StartButton(World world){
         setImage("images/buttons/start.png");
+        this.world=world;
     }
     public void act(){
         if(Greenfoot.mouseClicked(this))
         {
-            if(getWorld().getClass()==MainPage.class)
-                Greenfoot.setWorld(new CharacterSelectionPage());
+            Greenfoot.setWorld(world);
         }
     }
     

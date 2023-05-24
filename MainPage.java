@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class MainPage extends World
+public class MainPage extends SelectionPage
 {
 
     /**
@@ -15,7 +15,7 @@ public class MainPage extends World
      */
     public MainPage()
     {    
-        super(600, 400, 1); 
+        super(); 
         prepare();
     }
     /**
@@ -24,8 +24,8 @@ public class MainPage extends World
      */
     private void prepare()
     {
-        addObject(new Play(),getWidth()/2,258);
-        addObject(new Guide(),getWidth()/3,335);
-        addObject(new Score(),getWidth()/3*2,335);
+        addObject(new StartButton(new CharacterSelectionPage()),getWidth()/2,258);
+        addObject(new GuideButton(),getWidth()/3,335);
+        addObject(new ScoreButton(),getWidth()/3*2,335);
     }
 }
