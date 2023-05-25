@@ -10,8 +10,13 @@ public abstract class Stage extends World
 {
     protected GreenfootImage background;
     protected Scroller scroller = null;
+    protected MobHandler handler;
     
+    protected MonsterEnum monster1;
+    protected MonsterEnum monster2;
+    protected MonsterEnum monster3;
     protected CharacterEnum character;
+    protected Player player;
     
     public Stage(CharacterEnum character)
     {    
@@ -29,8 +34,14 @@ public abstract class Stage extends World
         switch(character){
             case ARCHER:
                 Gun gun = new Gun();
-                addObject(new Archer(gun),getWidth()/2,getHeight()/2);
+                player = new Archer(gun);
+                addObject(player,getWidth()/2,getHeight()/2);
                 addObject(gun,getWidth()/2,getHeight()/2);
+        }
+    }
+    public void act(){
+        if(!(player.isAlive())){
+            Greenfoot.setWorld(new ClearPage(player));
         }
     }
 }

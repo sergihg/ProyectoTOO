@@ -13,6 +13,7 @@ public class Archer extends Player
         setImage(movementSequence[DIRECTION_RIGHT][0]);
         score =0;
         
+        character = CharacterEnum.ARCHER;
         cooldown = 100;
         maxHealth = 100;
         health = maxHealth;

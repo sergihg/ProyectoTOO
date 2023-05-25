@@ -21,14 +21,14 @@ public class Bullet extends Actor
     {
         move(5);
         checkCollisions();
-        if(isAtEdge()){
-            getWorld().removeObject(this);
-        }
     }
     private void checkCollisions(){
         Monster monster = (Monster)getOneIntersectingObject(Monster.class);
         if(monster!=null){
             monster.dealDamage(damage);
+            try{getWorld().removeObject(this);}catch(Exception ignored){}
+        }else if(isAtEdge()){
+            try{getWorld().removeObject(this);}catch(Exception ignored){}
         }
     }
 }

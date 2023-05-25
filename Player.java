@@ -12,6 +12,7 @@ public abstract class Player extends Actor
     protected static final int DIRECTION_LEFT = 1;
     protected static final int DAMAGE_DELAY = 50;
     
+    protected CharacterEnum character;
     protected double cooldown;
     protected double maxHealth;
     protected double health;
@@ -20,6 +21,7 @@ public abstract class Player extends Actor
     protected Weapon weapon;
     protected int score;
     
+    protected boolean alive=true;
     protected double weaponCooldown;
     protected int damageInflictedDelay;
     protected int imageDelay;
@@ -37,11 +39,12 @@ public abstract class Player extends Actor
         checkMonsterCollisions();
         
         showScore();
+        checkState();
     }
     protected void showScore(){
         World world = getWorld();
         world.showText("Score: "+score,world.getWidth()-100,20);
-        world.showText("Health: "+health,world.getWidth()-200,20);
+        world.showText("Health: "+health,world.getWidth()-500,20);
         
     }
     protected void attack(){
@@ -104,6 +107,15 @@ public abstract class Player extends Actor
         return direction;
     }
     
+    public void checkState(){
+        if(isAlive() && health<=0){
+            alive = false;
+        }
+    }
+    public boolean isAlive(){
+        return alive;
+    }
+    
     //SETTERS QUE USAN LOS OBJETOS QUE PUEDE RECOGER EL PLAYER
     public double getCooldown(){
         return cooldown;
@@ -147,4 +159,7 @@ public abstract class Player extends Actor
         this.score += score;
     }
     
+    public CharacterEnum getEnum(){
+        return character;
+    }
 }

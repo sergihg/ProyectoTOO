@@ -9,7 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Slime extends Monster
 {
     public Slime(){
-        setImage("images/characters/archer1.png");
+        image = new GreenfootImage("images/characters/archer1.png");
+        setImage(image);
         health = 20;
         damage = 5;
         speed = 2;

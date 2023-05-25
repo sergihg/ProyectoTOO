@@ -11,6 +11,7 @@ public abstract class Monster extends Actor
     protected int damage;
     protected double health;
     protected int speed;
+    protected GreenfootImage image;
     
     public void act()
     {

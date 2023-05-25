@@ -11,4 +11,7 @@ public class WorldButton extends StartButton
     public WorldButton(World world){
         super(world);
     }
+    public void selectWorld(World world){
+        this.world = world;
+    }
 }
