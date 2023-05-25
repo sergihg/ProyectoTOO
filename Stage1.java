@@ -7,23 +7,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Stage1 extends Stage
 {
-
-    public Stage1()
+    
+    public Stage1(CharacterEnum character)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(); 
+        super(character); 
+        
         background = new GreenfootImage("images/characters/archer1.png");
         scroller = new Scroller(this, background);
         prepare();
-    }
-    /**
-     * Prepare the world for the start of the program.
-     * That is: create the initial objects and add them to the world.
-     */
-    private void prepare()
-    {
-        Gun gun = new Gun();
-        addObject(new Archer(gun),getWidth()/2,getHeight()/2);
-        addObject(gun,getWidth()/2,getHeight()/2);
-    }
+    }       
 }

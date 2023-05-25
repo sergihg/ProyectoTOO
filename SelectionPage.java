@@ -6,14 +6,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class SelectionPage extends World
+public abstract class SelectionPage extends Menu
 {
     public SelectionPage()
-    {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
-        GreenfootImage background = new GreenfootImage("images/backgrounds/main.png");
-        background.scale(background.getWidth(), background.getHeight()+10);
-        setBackground(background);
+    {
+        super();
+        addObject(new Label(), getWidth()/2, (getHeight()/2)-30 );
     }
 }

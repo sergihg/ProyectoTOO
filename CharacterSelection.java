@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.EnumMap;
 
 /**
  * Write a description of class CharacterSelection here.
@@ -8,12 +9,26 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class CharacterSelection extends Button
 {
-    private String player;
-    public CharacterSelection(String image, String player){
-        setImage(image);
-        this.player=player;
+    private CharacterEnum option;
+    public CharacterSelection(CharacterEnum option){
+        this.option = option;
+        switch(option){
+            case ARCHER:
+                setImage("images/characters/archer1.png"); 
+
+        }
     }
-    String getPlayer(){
-        return player;
+    public void act(){
+        if(Greenfoot.mouseClicked(this)){
+            selectCharacter();
+        }
+    }
+    public void selectCharacter(){
+        CharacterSelectionPage world = (CharacterSelectionPage)getWorld();
+        try{
+            world.setOption(option);
+        }catch(Exception ex){
+            
+        }
     }
 }

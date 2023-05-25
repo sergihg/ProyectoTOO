@@ -42,7 +42,6 @@ public abstract class Player extends Actor
         World world = getWorld();
         world.showText("Score: "+score,world.getWidth()-100,20);
         world.showText("Health: "+health,world.getWidth()-200,20);
-        world.showText("cooldown: "+weaponCooldown,world.getWidth()-200,40);
         
     }
     protected void attack(){
@@ -106,24 +105,44 @@ public abstract class Player extends Actor
     }
     
     //SETTERS QUE USAN LOS OBJETOS QUE PUEDE RECOGER EL PLAYER
+    public double getCooldown(){
+        return cooldown;
+    }
     public void setCooldown(double cooldown){
         this.cooldown -= (cooldown*this.cooldown);
     }
+    
     public void setHealth(){
         health =maxHealth;
+    }
+    public double getMaxHealth(){
+        return maxHealth;
     }
     public void setMaxHealth(double health){
         this.maxHealth += (health*this.maxHealth);
     }
+    
+    public double getDefense(){
+        return defense;
+    }
     public void setDefense(double defense){
         this.defense += (defense*this.defense);
+    }
+    
+    public int getSpeed(){
+        return speed;
     }
     public void setSpeed(int speed){
         this.speed +=speed;
     }
+    
+    public double getAttack(){
+        return weapon.getDamage();
+    }
     public void setAttack(double damage){
         weapon.setDamage(damage);
     }
+    
     public void setScore(int score){
         this.score += score;
     }

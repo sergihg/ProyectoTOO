@@ -25,6 +25,10 @@ public abstract class Weapon extends Actor
     protected void loadImage(){
         setImage(images[direction]);
     }
+    
+    public double getDamage(){
+        return damage;
+    }
     public void setDamage(double damage){
         this.damage += (this.damage * damage);
     }
