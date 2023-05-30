@@ -10,7 +10,7 @@ public abstract class Player extends Actor
 {
     protected static final int DIRECTION_RIGHT= 0;
     protected static final int DIRECTION_LEFT = 1;
-    protected static final int DAMAGE_DELAY = 50;
+    protected static final int DAMAGE_DELAY = 100;
     
     protected CharacterEnum character;
     protected double cooldown;
@@ -93,6 +93,7 @@ public abstract class Player extends Actor
         Monster monster = (Monster)this.getOneIntersectingObject(Monster.class);
         if(damageInflictedDelay == 0){
             if(monster!=null){
+                score-=10;
                 damageInflicted(monster.getDamage());
                 damageInflictedDelay = DAMAGE_DELAY;
             }
@@ -100,6 +101,7 @@ public abstract class Player extends Actor
             damageInflictedDelay--;
         }
     }
+    
     protected void damageInflicted(int damageReceived){
         health-= damageReceived;
     }
@@ -161,5 +163,12 @@ public abstract class Player extends Actor
     
     public CharacterEnum getEnum(){
         return character;
+    }
+    public Weapon getWeapon(){
+        return weapon;
+    }
+    
+    public int getScore(){
+        return score;
     }
 }

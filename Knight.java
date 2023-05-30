@@ -1,28 +1,28 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Swordsman here.
+ * Write a description of class Knight here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Archer extends Player
+public class Knight extends Player
 {
-    public Archer(){
+    public Knight(){
         loadImages();
         setImage(movementSequence[DIRECTION_RIGHT][0]);
         score =0;
         
-        character = CharacterEnum.ARCHER;
-        cooldown = 100;
-        maxHealth = 100;
+        character = CharacterEnum.KNIGHT;
+        cooldown = 200;
+        maxHealth = 150;
         health = maxHealth;
-        defense = 0.1;
-        speed = 3;
+        defense = 0.2;
+        speed = 2;
         damageInflictedDelay = 0;
         weaponCooldown=10;
         
-        this.weapon = new Gun();
+        this.weapon = new Sword();
     }
     public void loadImages(){
         movementSequence = new String[4][];

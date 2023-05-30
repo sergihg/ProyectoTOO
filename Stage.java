@@ -12,17 +12,18 @@ public abstract class Stage extends World
     protected Scroller scroller = null;
     protected MobHandler handler;
     
-    protected MonsterEnum monster1;
-    protected MonsterEnum monster2;
-    protected MonsterEnum monster3;
+    protected MonsterEnum monster;
     protected CharacterEnum character;
     protected Player player;
+    
+    protected boolean pause;
     
     public Stage(CharacterEnum character)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1,false); 
         this.character = character;
+        pause = false;
     }
     
     public void scroll(int x, int y){
@@ -33,15 +34,35 @@ public abstract class Stage extends World
     {
         switch(character){
             case ARCHER:
-                Gun gun = new Gun();
-                player = new Archer(gun);
+                player = new Archer();
                 addObject(player,getWidth()/2,getHeight()/2);
-                addObject(gun,getWidth()/2,getHeight()/2);
+                addObject(player.getWeapon(),getWidth()/2,getHeight()/2);
+                break;
+            case KNIGHT:
+                player = new Knight();
+                addObject(player,getWidth()/2,getHeight()/2);
+                addObject(player.getWeapon(),getWidth()/2,getHeight()/2);
         }
     }
     public void act(){
         if(!(player.isAlive())){
             Greenfoot.setWorld(new ClearPage(player));
         }
+        checkPauseResume();
+    }
+    private void checkPauseResume(){
+        if(pause){
+            resume();
+        }
+        pause();
+    }
+    private void pause(){
+        
+    }
+    private void resume(){
+        
+    }
+    public void setScore(int score){
+        player.setScore(score);
     }
 }

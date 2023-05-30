@@ -26,9 +26,7 @@ public class Gun extends Weapon
     
     
     public void act(){
-        getWorld().showText("attacking:"+attacking ,getWorld().getWidth()-200,60);
         if(attacking==true){
-            getWorld().showText("attacked: ", -200,60);
             doAttack();
             attacking=false;
         }

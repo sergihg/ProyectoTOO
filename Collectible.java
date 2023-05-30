@@ -13,6 +13,7 @@ public abstract class Collectible extends Actor
         Player player = (Player)getOneIntersectingObject(Player.class);
         if(player!=null){
             applyObject(player);
+            player.setScore(10);
             getWorld().removeObject(this);
         }
     }

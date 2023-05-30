@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.target=MobHandler
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ MobHandler\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=monster1\ monster2\ monster3
-comment1.target=MobHandler(MonsterEnum,\ MonsterEnum,\ MonsterEnum)
+comment1.params=monster\ initialMonsterGeneration
+comment1.target=MobHandler(MonsterEnum,\ double)
 comment2.params=
 comment2.target=void\ act()
-comment3.params=option
-comment3.target=void\ spawnMonster(int)
+comment3.params=
+comment3.target=void\ spawnMonster()
 numComments=4

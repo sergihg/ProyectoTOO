@@ -15,6 +15,10 @@ public class CharacterSelection extends Button
         switch(option){
             case ARCHER:
                 setImage("images/characters/archer1.png"); 
+            break;
+            case KNIGHT:
+                setImage("images/characters/archer1.png"); 
+            break;
 
         }
     }

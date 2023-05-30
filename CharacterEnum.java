@@ -5,5 +5,5 @@
  * @version (a version number or a date)
  */
 public enum CharacterEnum  {
-    ARCHER
+    ARCHER, KNIGHT
 }

@@ -28,8 +28,10 @@ public abstract class Monster extends Actor
     public void dealDamage(double damage){
         health -= damage;
         if(health<=0){
+            Stage world = (Stage)getWorld();
             dropObject();
-            getWorld().removeObject(this);
+            world.setScore(50);
+            world.removeObject(this);
         }
     }
     protected void dropObject(){

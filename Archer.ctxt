@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Archer
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ Swordsman\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=weapon
-comment1.target=Archer(Weapon)
+comment1.params=
+comment1.target=Archer()
 comment2.params=
 comment2.target=void\ loadImages()
 numComments=3

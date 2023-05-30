@@ -10,10 +10,11 @@ public class CharacterSelectionPage extends SelectionPage
 {
     //default character: archer
     private CharacterEnum option= CharacterEnum.ARCHER;
-    private CharacterSelection selection = new CharacterSelection(option);
+    private CharacterSelection selection1 = new CharacterSelection(CharacterEnum.ARCHER);
+    private CharacterSelection selection2 = new CharacterSelection(CharacterEnum.KNIGHT);
     
     private World world = new StageSelectionPage(option);
-    private Player currentPlayer = new Archer(new Gun());
+    private Player currentPlayer = new Archer();
     private CharacterButton start = new CharacterButton(world);
     
     private static final int STRINGS_X=400;
@@ -28,7 +29,8 @@ public class CharacterSelectionPage extends SelectionPage
         addObject(start, getWidth()-100,getHeight()-50);
         addObject(new MenuButton(), 100, getHeight()-50);
         
-        addObject(selection,200,200);
+        addObject(selection1,200,200);
+        addObject(selection2,180,200);
     }
     
     public void act()
@@ -49,7 +51,7 @@ public class CharacterSelectionPage extends SelectionPage
         start.selectCharacter(world);
         switch(option){
             case ARCHER:
-                currentPlayer = new Archer(new Gun());
+                currentPlayer = new Archer();
         }
     }
 }

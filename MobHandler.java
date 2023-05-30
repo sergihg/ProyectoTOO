@@ -7,30 +7,27 @@ import greenfoot.*;
  */
 public class MobHandler extends Actor
 {
-    private MonsterEnum monster1, monster2, monster3;
+    private MonsterEnum monster;
     private double monsterGeneration;
-    private MonsterGenerator generator = new MonsterGenerator();
+    private static final MonsterGenerator generator = new MonsterGenerator();
     private  double decreasingFactor =0.1;
     
-    private static final double INITIAL_MONSTER_GENERATION = 60;
+    private double initialMonsterGeneration = 60;
     
-    public MobHandler(MonsterEnum monster1, MonsterEnum monster2, MonsterEnum monster3)
+    public MobHandler(MonsterEnum monster, double initialMonsterGeneration)
     {
-        this.monster1 = monster1;
-        this.monster2 = monster2;
-        this.monster3 = monster3;
-        monsterGeneration = INITIAL_MONSTER_GENERATION;
+        this.monster = monster;
+        this.initialMonsterGeneration = initialMonsterGeneration;
     }
     public void act(){
         monsterGeneration--;
-        getWorld().showText("next mob in: "+monsterGeneration, -300, 20);
         if(monsterGeneration <= 0){
-            spawnMonster(Greenfoot.getRandomNumber(2)+1);
-            monsterGeneration=INITIAL_MONSTER_GENERATION-decreasingFactor;
+            spawnMonster();
+            monsterGeneration=initialMonsterGeneration-decreasingFactor;
             decreasingFactor+=0.1;
         }
     }
-    public void spawnMonster(int option){
+    public void spawnMonster(){
         int spawnX =0;
         int spawnY =0;
         if(Greenfoot.getRandomNumber(2)==0){
@@ -41,16 +38,6 @@ public class MobHandler extends Actor
             spawnX = Greenfoot.getRandomNumber(2) * (getWorld().getWidth() -1);
             spawnY = Greenfoot.getRandomNumber(getWorld().getHeight());
         }
-        switch(option){
-            case 1:
-                getWorld().addObject(generator.generateMonster(monster1), spawnX, spawnY);
-                break;
-            case 2:
-                getWorld().addObject(generator.generateMonster(monster2), spawnX, spawnY);
-                break;
-            case 3:
-                getWorld().addObject(generator.generateMonster(monster3), spawnX, spawnY);
-                break;
-        }
+        getWorld().addObject(generator.generateMonster(monster), spawnX, spawnY);
     }
 }

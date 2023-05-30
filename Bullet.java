@@ -9,18 +9,26 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Bullet extends Actor
 {
     private double damage;
+    private boolean direction;
     public Bullet(double damage){
         setImage("images/weapons/bullet.png");
-        try{
-            Monster monster = getWorld().getObjects(Monster.class).get(0);
-            turnTowards(monster.getX(), monster.getY());
-        }catch(Exception ex){}         
+                
         this.damage = damage;
     }
     public void act()
     {
+        turnDirection();
         move(5);
         checkCollisions();
+    }
+    private void turnDirection(){
+        if(!direction)
+        {
+            try{Monster monster = getObjectsInRange(300, Monster.class).get(0);
+                //Monster monster = getWorld().getObjects(Monster.class).get(0);
+                turnTowards(monster.getX(), monster.getY());
+            }catch(Exception ex){} 
+        }
     }
     private void checkCollisions(){
         Monster monster = (Monster)getOneIntersectingObject(Monster.class);
