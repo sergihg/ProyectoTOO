@@ -6,17 +6,23 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class GuidePage extends SelectionPage
+public class GuidePage extends World
 {
 
+    private static final World world = new GuidePage();
     /**
      * Constructor for objects of class GuidePage.
      * 
      */
     public GuidePage()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(); 
-        addObject(new MenuButton(), 100, getHeight()-50);
+        super(600,400,1);
+        BackgroundSelector.setBackground(BackgroundEnum.OTHER, this);
+        addObject(new Button(ButtonEnum.MENU), 100, getHeight()-50);
+        //addObject(new Label2(), getWidth()/2, (getHeight()/2)-30 );
+    }
+    
+    public static World getGuidePage(){
+        return world;
     }
 }

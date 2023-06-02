@@ -10,7 +10,7 @@ public class Knight extends Player
 {
     public Knight(){
         loadImages();
-        setImage(movementSequence[DIRECTION_RIGHT][0]);
+        setImage(images[DIRECTION_RIGHT]);
         score =0;
         
         character = CharacterEnum.KNIGHT;
@@ -25,15 +25,9 @@ public class Knight extends Player
         this.weapon = new Sword();
     }
     public void loadImages(){
-        movementSequence = new String[4][];
-        
-        movementSequence[DIRECTION_RIGHT] = new String[]{
-            "images/characters/archer1.png",
-            "images/characters/archer1.png"
-        };
-        movementSequence[DIRECTION_LEFT] = new String[]{
-            "images/characters/archer1.png",
-            "images/characters/archer1.png"
+        images = new String[]{
+            "images/characters/knight1.png",
+            "images/characters/knight2.png",
         };
     }
 }

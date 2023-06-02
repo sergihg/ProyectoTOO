@@ -7,32 +7,29 @@ import java.util.EnumMap;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class CharacterSelection extends Button
+public class ButtonCharacterSelection extends Actor
 {
     private CharacterEnum option;
-    public CharacterSelection(CharacterEnum option){
+    public ButtonCharacterSelection(CharacterEnum option){
         this.option = option;
         switch(option){
             case ARCHER:
                 setImage("images/characters/archer1.png"); 
             break;
             case KNIGHT:
-                setImage("images/characters/archer1.png"); 
+                setImage("images/characters/knight1.png"); 
             break;
 
         }
     }
     public void act(){
         if(Greenfoot.mouseClicked(this)){
+            Greenfoot.playSound("sounds/beep.mp3");
             selectCharacter();
         }
     }
     public void selectCharacter(){
         CharacterSelectionPage world = (CharacterSelectionPage)getWorld();
-        try{
-            world.setOption(option);
-        }catch(Exception ex){
-            
+        world.setOption(option);    
         }
-    }
 }

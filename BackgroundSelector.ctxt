@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=BackgroundSelector
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ BackgroundSelector\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=option\ world
+comment1.target=void\ setBackground(BackgroundEnum,\ greenfoot.World)
+numComments=2

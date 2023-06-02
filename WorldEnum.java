@@ -6,5 +6,5 @@
  */
 public enum WorldEnum  
 {
-    STAGE1
+    GRAVEYARD, FOREST, WASTELAND
 }

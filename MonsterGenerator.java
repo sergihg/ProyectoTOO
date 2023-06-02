@@ -6,10 +6,15 @@
  */
 public class MonsterGenerator  
 {
-    public Monster generateMonster(MonsterEnum option){
+    //monster factory
+    public static Monster generate(MonsterEnum option){
         switch(option){
             case SLIME:
                 return new Slime();
+            case WEREWOLF:
+                return new Werewolf();
+            case SKELETON:
+                return new Skeleton();    
         }
         return null;
     }

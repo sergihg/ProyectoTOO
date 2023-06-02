@@ -10,7 +10,7 @@ public class Archer extends Player
 {
     public Archer(){
         loadImages();
-        setImage(movementSequence[DIRECTION_RIGHT][0]);
+        setImage(images[DIRECTION_RIGHT]);
         score =0;
         
         character = CharacterEnum.ARCHER;
@@ -25,15 +25,9 @@ public class Archer extends Player
         this.weapon = new Gun();
     }
     public void loadImages(){
-        movementSequence = new String[4][];
-        
-        movementSequence[DIRECTION_RIGHT] = new String[]{
+        images = new String[]{
             "images/characters/archer1.png",
-            "images/characters/archer1.png"
-        };
-        movementSequence[DIRECTION_LEFT] = new String[]{
-            "images/characters/archer1.png",
-            "images/characters/archer1.png"
+            "images/characters/archer2.png",
         };
     }
 }

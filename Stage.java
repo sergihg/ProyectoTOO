@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.List;
 
 /**
  * Write a description of class Stage here.
@@ -15,15 +16,16 @@ public abstract class Stage extends World
     protected MonsterEnum monster;
     protected CharacterEnum character;
     protected Player player;
+    protected List description;
     
     protected boolean pause;
+    protected static final GreenfootSound sound = new GreenfootSound("sounds/music.mp3");
     
     public Stage(CharacterEnum character)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1,false); 
         this.character = character;
-        pause = false;
     }
     
     public void scroll(int x, int y){
@@ -43,26 +45,30 @@ public abstract class Stage extends World
                 addObject(player,getWidth()/2,getHeight()/2);
                 addObject(player.getWeapon(),getWidth()/2,getHeight()/2);
         }
+        sound.stop();
     }
     public void act(){
+        if(!sound.isPlaying())
+        {
+            startMusic();
+        }
         if(!(player.isAlive())){
+            Greenfoot.playSound("sounds/gameOver.mp3");
             Greenfoot.setWorld(new ClearPage(player));
+            sound.stop();
         }
-        checkPauseResume();
-    }
-    private void checkPauseResume(){
-        if(pause){
-            resume();
-        }
-        pause();
-    }
-    private void pause(){
-        
-    }
-    private void resume(){
-        
     }
     public void setScore(int score){
         player.setScore(score);
+    }
+    public int getPlayerDirection(){
+        return player.getDirection();
+    }
+    public List getDescription(){
+        return description;
+    }
+
+    public void startMusic(){
+        sound.playLoop();
     }
 }

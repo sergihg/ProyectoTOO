@@ -12,6 +12,8 @@ public abstract class Player extends Actor
     protected static final int DIRECTION_LEFT = 1;
     protected static final int DAMAGE_DELAY = 100;
     
+    protected static final int WEAPON_OFFSET = 10;
+    
     protected CharacterEnum character;
     protected double cooldown;
     protected double maxHealth;
@@ -26,7 +28,7 @@ public abstract class Player extends Actor
     protected int damageInflictedDelay;
     protected int imageDelay;
     protected int imageIndex;
-    protected String [][]movementSequence;
+    protected String []images;
     protected int direction;
     
     public abstract void loadImages();
@@ -48,8 +50,8 @@ public abstract class Player extends Actor
         
     }
     protected void attack(){
-        weapon.moveWeapon(getX(),getY());
         if(weaponCooldown<=0){
+            Greenfoot.playSound("sounds/attack.mp3");
             weapon.attack();
             weaponCooldown = cooldown;
         }else{
@@ -62,32 +64,30 @@ public abstract class Player extends Actor
             direction=DIRECTION_LEFT;
             stage.scroll(-speed, 0);
             setLocation(getX()-speed,getY());
-            handleImgageSelector();
+            imageSelector();
             weapon.changeDirection(direction);
         }else if(Greenfoot.isKeyDown("right")){
             direction=DIRECTION_RIGHT;
             stage.scroll(speed, 0);
             setLocation(getX()+speed,getY());
-            handleImgageSelector();
+            imageSelector();
             weapon.changeDirection(direction);
         }else if(Greenfoot.isKeyDown("up")){
             stage.scroll(0, -speed);
             setLocation(getX(),getY()-speed);
-            handleImgageSelector();
         }else if(Greenfoot.isKeyDown("down")){
             stage.scroll(0, speed);
             setLocation(getX(),getY()+speed);
-            handleImgageSelector();
         }
-        weapon.moveWeapon(getX(),getY());
+        
+        if(direction==1){
+            weapon.moveWeapon(getX()-WEAPON_OFFSET, getY());
+        }else{
+            weapon.moveWeapon(getX()+WEAPON_OFFSET, getY());
+        }
     }
-    protected void handleImgageSelector(){
-        imageDelay--;
-        if(imageDelay==0){
-            imageIndex = (imageIndex +1)% movementSequence[direction].length;
-            setImage(movementSequence[direction][imageIndex]);
-            imageDelay = 2;
-        }
+    protected void imageSelector(){
+        setImage(images[direction]);
     }
     protected void checkMonsterCollisions(){
         Monster monster = (Monster)this.getOneIntersectingObject(Monster.class);

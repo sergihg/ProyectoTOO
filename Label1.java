@@ -6,9 +6,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Label extends Actor
+public class Label1 extends Actor
 {
-    public Label(){
+    public Label1(){
         setImage("images/backgrounds/frame.png");
     }
 }

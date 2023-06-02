@@ -6,5 +6,5 @@
  */
 public enum MonsterEnum  
 {
-    SLIME
+    SLIME, WEREWOLF, SKELETON
 }

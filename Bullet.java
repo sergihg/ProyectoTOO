@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.List;
 
 /**
  * Write a description of class Bullet here.
@@ -12,31 +13,37 @@ public class Bullet extends Actor
     private boolean direction;
     public Bullet(double damage){
         setImage("images/weapons/bullet.png");
-                
+        direction = false;
         this.damage = damage;
     }
+
     public void act()
     {
-        turnDirection();
+        if(!direction){
+            turnDirection();
+        }
         move(5);
         checkCollisions();
     }
+
     private void turnDirection(){
-        if(!direction)
+        List monsters = getObjectsInRange(300, Monster.class);
+        if(monsters!=null && monsters.size()>0)
         {
-            try{Monster monster = getObjectsInRange(300, Monster.class).get(0);
-                //Monster monster = getWorld().getObjects(Monster.class).get(0);
-                turnTowards(monster.getX(), monster.getY());
-            }catch(Exception ex){} 
+            Monster monster = (Monster)monsters.get(0);
+            turnTowards(monster.getX(), monster.getY());
         }
+        direction = true;
     }
+
     private void checkCollisions(){
         Monster monster = (Monster)getOneIntersectingObject(Monster.class);
         if(monster!=null){
             monster.dealDamage(damage);
-            try{getWorld().removeObject(this);}catch(Exception ignored){}
+            //quitar try catch
+            getWorld().removeObject(this);
         }else if(isAtEdge()){
-            try{getWorld().removeObject(this);}catch(Exception ignored){}
+            getWorld().removeObject(this);
         }
     }
 }

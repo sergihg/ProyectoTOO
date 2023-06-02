@@ -9,7 +9,6 @@ public class MobHandler extends Actor
 {
     private MonsterEnum monster;
     private double monsterGeneration;
-    private static final MonsterGenerator generator = new MonsterGenerator();
     private  double decreasingFactor =0.1;
     
     private double initialMonsterGeneration = 60;
@@ -38,6 +37,6 @@ public class MobHandler extends Actor
             spawnX = Greenfoot.getRandomNumber(2) * (getWorld().getWidth() -1);
             spawnY = Greenfoot.getRandomNumber(getWorld().getHeight());
         }
-        getWorld().addObject(generator.generateMonster(monster), spawnX, spawnY);
+        getWorld().addObject(MonsterGenerator.generate(monster), spawnX, spawnY);
     }
 }

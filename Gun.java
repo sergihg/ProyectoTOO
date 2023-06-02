@@ -18,8 +18,6 @@ public class Gun extends Weapon
         setImage(image);*/
         
         damage = 50;
-        weaponDelay = 0;
-        currentWeaponDelay = 0;
         attacking=false;
         
     }

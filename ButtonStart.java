@@ -6,18 +6,22 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class StartButton extends Button
+public class ButtonStart extends Actor
 {
-    protected World world;
+    private World world;
     
-    public StartButton(World world){
+    public ButtonStart(World world){
         setImage("images/buttons/start.png");
         this.world=world;
     }
     public void act(){
         if(Greenfoot.mouseClicked(this))
         {
+            Greenfoot.playSound("sounds/beep.mp3");
             Greenfoot.setWorld(world);
         }
+    }
+    public void setWorld(World world){
+        this.world = world;
     }
 }

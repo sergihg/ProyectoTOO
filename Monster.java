@@ -11,16 +11,14 @@ public abstract class Monster extends Actor
     protected int damage;
     protected double health;
     protected int speed;
+    protected int score;
     protected GreenfootImage image;
     
     public void act()
     {
         move(speed);
-        try{
         Player character = getWorld().getObjects(Player.class).get(0);
-        turnTowards(character.getX(), character.getY());}
-        catch(NullPointerException ex){
-        }
+        turnTowards(character.getX(), character.getY());
     }
     public int getDamage(){
         return damage;
@@ -30,7 +28,8 @@ public abstract class Monster extends Actor
         if(health<=0){
             Stage world = (Stage)getWorld();
             dropObject();
-            world.setScore(50);
+            world.setScore(score);
+            Greenfoot.playSound("sounds/kill.mp3");
             world.removeObject(this);
         }
     }

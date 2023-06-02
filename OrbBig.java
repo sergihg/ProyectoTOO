@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class OrbBig extends Collectible
 {
     public OrbBig(){
+        sound = new GreenfootSound("sounds/pickup.mp3");
         setImage("images/objects/bigorb.png");
     }
     public void applyObject(Player player){

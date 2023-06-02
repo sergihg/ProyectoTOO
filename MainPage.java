@@ -6,16 +6,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class MainPage extends Menu
+public class MainPage extends World
 {
-
-    /**
-     * Constructor for objects of class MainPage.
-     * 
-     */
+    private static World world;
     public MainPage()
     {    
-        super(); 
+        super(600, 400, 1);
+        BackgroundSelector.setBackground(BackgroundEnum.MENU, this);
+        world = this;
         prepare();
     }
     /**
@@ -24,8 +22,11 @@ public class MainPage extends Menu
      */
     private void prepare()
     {
-        addObject(new StartButton(new CharacterSelectionPage()),getWidth()/2,258);
-        addObject(new GuideButton(),getWidth()/3,335);
-        addObject(new ScoreButton(),getWidth()/3*2,335);
+        addObject(new ButtonStart(new CharacterSelectionPage()),getWidth()/2,258);
+        addObject(new Button(ButtonEnum.GUIDE),getWidth()/3,335);
+        addObject(new Button(ButtonEnum.RECORD),getWidth()/3*2,335);
+    }
+    public static World getMainPage(){
+        return world;
     }
 }
