@@ -19,7 +19,7 @@ public class GuidePage extends World
         super(600,400,1);
         BackgroundSelector.setBackground(BackgroundEnum.OTHER, this);
         addObject(new Button(ButtonEnum.MENU), 100, getHeight()-50);
-        //addObject(new Label2(), getWidth()/2, (getHeight()/2)-30 );
+        addObject(new Label2(), getWidth()/2, (getHeight()/2)-30 );
     }
     
     public static World getGuidePage(){
